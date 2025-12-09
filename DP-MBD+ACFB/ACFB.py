@@ -58,14 +58,15 @@ class ACFB(nn.Module):
             self.conv1x1 = nn.Identity()
     
     def forward(self, x):
-        x0, x1 = x
-        x0 = self.adjust_conv(x0)     
-        
-        x_concat = torch.cat([x0, x1], dim=1) # n c h w
+        def forward(self, x):
+        x1, x2 = x
+        x1 = self.adjust_conv(x1)
+        x_concat = torch.cat([x1, x2], dim=1)  # n c h w
         x_concat = self.se(x_concat)
-        x0_weight, x1_weight = torch.split(x_concat, [x0.size()[1], x1.size()[1]], dim=1)  
-        x0_weight = x0 * x0_weight
-        x1_weight = x1 * x1_weight     
-        return self.conv1x1(torch.cat([x0 + x1_weight, x1 + x0_weight], dim=1))     
+        x1_weight, x2_weight = torch.split(x_concat, [x1.size()[1], x2.size()[1]], dim=1)
+        x1_weight = x1 * x1_weight
+        x2_weight = x2 * x2_weight
+        return self.conv1x1(torch.cat([x1 + x2_weight, x2 + x1_weight], dim=1))
+        
 
 
