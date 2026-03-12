@@ -5,3 +5,12 @@ GeoPave-DroneSet, a full-resolution pavement distress dataset bespoke to UAV ins
 
 Here, only some partial images of the GeoPave-DroneSet are shown. The complete dataset will be released after acceptance.
 
+The links to the other four datasets used in this paper are as follows：
+
+RDD2022 dataset (China_Drone): https://datasetninja.com/road-damage-detector
+
+HighRPD dataset: https://data.mendeley.com/datasets/sywswj7djj/1
+
+UAV-PDD2023 dataset: https://zenodo.org/records/8429208
+
+UAPD dataset: https://github.com/tantantetetao/UAPD-Pavement-Distress-Dataset
